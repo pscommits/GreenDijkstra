@@ -1,4 +1,4 @@
-# Green Dijkstra — Live Demo
+# Green Dijkstra 
 
 A single-page, interactive app: pick a sender and receiver on a live network topology, drag a latency↔carbon priority slider, and watch a carbon-aware route update in real time against real UK grid carbon data.
 
