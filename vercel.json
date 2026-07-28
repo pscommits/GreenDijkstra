@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/handler.py": {
+      "includeFiles": "{lib/**,data/**,static/**}"
+    }
+  }
+}

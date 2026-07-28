@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Green Dijkstra — Live Carbon-Aware Routing</title>
+  <meta name="description" content="A live demo of carbon-aware network routing over real UK grid carbon intensity data." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Green Dijkstra</h1>
+    <p class="tagline">Carbon-aware network routing, live over real UK grid data</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel topology-panel" aria-label="Network topology">
+      <div class="panel-head">
+        <h2>Network topology</h2>
+        <span id="data-source-badge" class="badge" hidden></span>
+      </div>
+      <svg id="topology-svg" viewBox="0 0 700 620" role="img" aria-label="Network topology diagram"></svg>
+      <div class="legend">
+        <span class="legend-item"><i class="swatch baseline"></i> Baseline (latency-only)</span>
+        <span class="legend-item"><i class="swatch green"></i> Green Dijkstra</span>
+      </div>
+    </section>
+
+    <div class="side-col">
+      <section class="panel controls-panel" aria-label="Route controls">
+        <h2>Pick a route</h2>
+
+        <label class="field">
+          <span>Sender</span>
+          <select id="from-select"></select>
+        </label>
+
+        <label class="field">
+          <span>Receiver</span>
+          <select id="to-select"></select>
+        </label>
+
+        <label class="field">
+          <span>Priority: <strong id="alpha-label">balanced</strong></span>
+          <input id="alpha-slider" type="range" min="0" max="1" step="0.05" value="0.5" />
+          <div class="slider-ends">
+            <span>carbon-first</span>
+            <span>latency-first</span>
+          </div>
+        </label>
+
+        <p id="status-line" class="status-line" aria-live="polite"></p>
+
+        <div id="results" class="results" hidden>
+          <div class="result-card baseline">
+            <h3>Baseline <span class="hint">(fastest)</span></h3>
+            <p class="path" id="baseline-path"></p>
+            <p><span id="baseline-latency"></span> ms &middot; <span id="baseline-carbon"></span> gCO2</p>
+          </div>
+          <div class="result-card green">
+            <h3>Green Dijkstra</h3>
+            <p class="path" id="green-path"></p>
+            <p><span id="green-latency"></span> ms &middot; <span id="green-carbon"></span> gCO2</p>
+          </div>
+          <div class="result-card summary" id="comparison-summary"></div>
+        </div>
+      </section>
+
+      <section class="panel regions-panel" aria-label="Regional carbon intensity">
+        <h2>GB regions right now</h2>
+        <p class="panel-sub">Greenest to dirtiest, live</p>
+        <ol id="regions-list" class="regions-list"></ol>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Carbon data is real and live, from NESO's public
+      <a href="https://carbon-intensity.github.io/api-definitions/" target="_blank" rel="noopener">Carbon Intensity API</a>.
+      The network topology is a simulation I designed myself — not any real operator's infrastructure.
+      Full write-up on <a href="https://github.com/" target="_blank" rel="noopener" id="repo-link">GitHub</a>.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

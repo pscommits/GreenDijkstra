@@ -1,0 +1,16 @@
+# Vercel CLI local project link/config
+.vercel
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+INSTRUCTIONS.md
+
