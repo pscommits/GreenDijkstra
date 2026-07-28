@@ -4,7 +4,7 @@ A single-page, interactive app: pick a sender and receiver on a live network top
 
 Classic Dijkstra finds the _fastest_ path through a network. This app finds the path that best balances speed against **carbon emitted per unit of electricity used**, using live UK National Energy System Operator (NESO) grid data — the greenest route between two points genuinely changes throughout the day as the generation mix shifts (more wind at night, more solar at midday, gas plants covering the gaps).
 
-**Live at:** _add your deployed URL here once you've followed [INSTRUCTIONS.md](INSTRUCTIONS.md)_
+**Live at:** https://green-dijkstra-web.vercel.app/https://green-dijkstra-web.vercel.app/
 
 ---
 
